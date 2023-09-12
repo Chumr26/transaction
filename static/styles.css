@@ -1,0 +1,50 @@
+/* Size for brand */
+nav .navbar-brand
+{
+    font-size: xx-large;
+}
+
+/* Colors for brand */
+nav .navbar-brand .blue
+{
+    color: #537fbe;
+}
+nav .navbar-brand .red
+{
+    color: #ea433b;
+}
+nav .navbar-brand .yellow
+{
+    color: #f5b82e;
+}
+nav .navbar-brand .green
+{
+    color: #2e944b;
+}
+.header
+{
+    margin: 2rem;
+    font-size: 4rem;
+    font-family: cursive;
+    color: #1a75ff;
+    text-align: center;
+}
+.login_form
+{
+    background-color: #f2f2f2;
+    margin: auto;
+    width: 30rem;
+    padding: 3rem;
+    border-radius: 1rem;
+}
+a
+{
+    text-decoration: none;
+}
+#carouselExampleSlidesOnly {
+    width: 30%;
+    margin: 5rem auto;
+}
+.carousel-item {
+    transition: opacity 1s ease-in-out;
+}

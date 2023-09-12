@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Homepage
+{% endblock %}
+
+{% block main %}
+<table class="table">
+        {% if stocks %}
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Name</th>
+                    <th>Shares</th>
+                    <th class=>Price</th>
+                    <th class=>TOTAL</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for stock in stocks %}
+                <tr>
+                    {% for i in stock %}
+                    <td>
+                        {% if i == "shares" %}
+                            <div class="d-flex justify-content-center align-items-center">
+                                <form action="/sell" method="post">
+                                    <input name="shares" type="hidden" value="1">
+                                    <input name="symbol" type="hidden" value="{{ stock['symbol'] }}">
+                                    <button class="btn btn-primary btn-sm" type="submit">-</button>
+                                </form>
+                                <span>{{ stock[i] }}</span>
+                                <form action="/buy" method="post">
+                                    <input name="shares" type="hidden" value="1">
+                                    <input name="symbol" type="hidden" value="{{ stock['symbol'] }}">
+                                    <button class="btn btn-primary btn-sm" type="submit">+</button>
+                                </form>
+                            </div>
+                        {% else %}
+                            {{ stock[i] }}
+                        {% endif %}
+                    </td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        {% endif %}
+        <tfoot>
+            <tr>
+                <td colspan="3"></td>
+                <td class="fw-bold">Cash</td>
+                <td>{{ cash_balance }}</td>
+            </tr>
+            <tr>
+                <td colspan="3"></td>
+                <td class="fw-bold">TOTAL</td>
+                <td>{{ grand_total }}</td>
+            </tr>
+        </tfoot>
+    </table>
+{% endblock %}

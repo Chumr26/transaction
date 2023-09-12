@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Account
+{% endblock %}
+
+{% block main %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Cash</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ username }}</td>
+            <td>{{ cash }}</td>
+        </tr>
+        <tr>
+            <!--password-->
+            <td>
+                <form action="/password" method="post">
+                    <div class="mb-3">
+                        <input style="width:15rem" class="form-control mx-auto" name="old_password" placeholder="Old Password" type="password" required>
+                    </div>
+                    <div class="mb-3">
+                        <input style="width:15rem" class="form-control mx-auto" name="new_password" placeholder="New Password" type="password" required>
+                    </div>
+                    <div class="mb-3">
+                        <input style="width:15rem" class="form-control mx-auto" name="confirmation" placeholder="New Password(again)" type="password" required>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Change Password</button>
+                </form>
+            </td>
+            <!--cash-->
+            <td>
+                <form action="/cash" method="post">
+                    <div class="mb-3">
+                        <input style="width:8rem" autocomplete="off" class="form-control mx-auto" id="cash" name="cash" placeholder="Cash" type="number" min="1" required>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Set</button>
+                </form>
+            </td>
+        </tr>
+
+    </tbody>
+</table>
+{% endblock %}
